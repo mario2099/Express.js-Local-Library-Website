@@ -12,9 +12,7 @@ var AuthorSchema = new Schema(
 );
 
 // Virtual for author's full name
-AuthorSchema
-.virtual('name')
-.get(function () {
+AuthorSchema.virtual('name').get(function () {
 // To avoid errors in cases where an author does not have either a family name or first name
 // We want to make sure we handle the exception by returning an empty string for that case
   var fullname = '';
@@ -41,9 +39,7 @@ AuthorSchema.virtual('lifespan').get(function() {
 });
 
 // Virtual for author's URL
-AuthorSchema
-.virtual('url')
-.get(function () {
+AuthorSchema.virtual('url').get(function () {
   return '/catalog/author/' + this._id;
 });
 
